@@ -9,9 +9,7 @@ import {UserService} from '../service/user-service';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-
   selectedUser: UserDTO = new UserDTO();
-  manuallySelected: boolean = false;
   @ViewChild('frmUser') frmUser: NgForm;
 
   constructor(private userService: UserService) { }
@@ -23,10 +21,9 @@ export class UsersComponent implements OnInit {
     this.userService.saveUser(this.selectedUser).subscribe(
       (result) => {
           if (result) {
-            alert('User have successfully added..');
-            this.saveUser();
+            alert('User have been successfully added..');
           } else {
-            alert('not added..');
+            alert('User not added..');
           }
       }
     );

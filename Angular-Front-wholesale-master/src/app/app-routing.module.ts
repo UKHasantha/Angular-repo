@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {MainComponent} from "./main/main.component";
-import {ItemsComponent} from "./items/items.component";
-import {PlaceOrderComponent} from "./place-order/place-order.component";
-import {UsersComponent} from "./users/users.component";
-import {OrdersComponent} from "./orders/orders.component";
+import {MainComponent} from './main/main.component';
+import {ItemsComponent} from './items/items.component';
+import {PlaceOrderComponent} from './place-order/place-order.component';
+import {UsersComponent} from './users/users.component';
+import {OrdersComponent} from './orders/orders.component';
 
 const routes: Routes = [{
   path: 'main',
@@ -29,7 +29,7 @@ const routes: Routes = [{
     {
       path: '',
       pathMatch: 'full',
-      redirectTo:'/main'
+      redirectTo: '/main'
     },
 ];
 

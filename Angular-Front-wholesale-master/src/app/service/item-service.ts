@@ -1,17 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {UserDTO} from '../dtos/user-dto';
+import {ItemDTO} from '../dtos/item-dto';
 import {Observable} from 'rxjs';
 
 export const MAIN_URL = 'http://localhost:8084';
-const URL = '/api/v1/users';
+const URL = '/api/v1/items';
 
 @Injectable()
-export class UserService {
+export class ItemService {
   constructor(private http: HttpClient) {}
 
-  saveUser(user: UserDTO): Observable<boolean> {
-    return this.http.post<boolean>(MAIN_URL + URL, user);
+  saveItem(item: ItemDTO): Observable<boolean> {
+    return this.http.post<boolean>(MAIN_URL + URL, item);
   }
-
 }

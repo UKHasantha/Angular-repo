@@ -24,11 +24,11 @@
   <div class="card-body" login-card-body>
     <div class="row">
       <div class="col col-12">
-        <form #frmUser="ngForm" (ngSubmit)="saveUser()" >
+        <form #frmUser="ngForm" (ngSubmit)="saveUser()">
     <p class="form-group">
       <label for="txtid">ID :-</label>
       <span class="fa fa-navicon form-control-feedback"></span>
-      <input [disabled]="manuallySelected" name="text"[(ngModel)]="selectedUser.userId" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Name User" id="txtid">
+      <input name="text"[(ngModel)]="selectedUser.userId" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Name User" id="txtid">
     </p>
       <p class="form-group">
         <label for="txtName">Name :-</label>
@@ -45,14 +45,15 @@
         <span class="fa fa-address-card form-control-feedback"></span>
         <input name="text" [(ngModel)]="selectedUser.userAddress" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Address user" id="txtAddress">
       </p>
+          <div class="clearfix">
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+            <p>By creating an account you agree to our <a href="#" style="color:#005cbf">Terms & Privacy</a>.</p>
+            <button routerLink="/main"  routerLinkActive="active" type="reset" class="btn btn-danger">Cancel</button>
+            <button type="submit" class="btn btn-primary">SignUp</button>
+          </div>
         </form>
   </div>
-      <div class="clearfix">
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-        <p>By creating an account you agree to our <a href="#" style="color:#005cbf">Terms & Privacy</a>.</p>
-        <button routerLink="/main"  routerLinkActive="active" type="reset" class="btn btn-danger">Cancel</button>
-        <button class="btn btn-success" (ngSubmit)="saveUser()">SignUp</button>
-      </div>
+
       <style>
         div.clearfix {
           text-align: center;
@@ -79,12 +80,9 @@
     <a href="https://www.linkedin.com/uas/login" class="linkedin"><i class="fa fa-linkedin"></i></a>
   </div>
 </div>
-
 <style>
 </style>
-
   </div>
-
 </div>
 </body>
 </html>

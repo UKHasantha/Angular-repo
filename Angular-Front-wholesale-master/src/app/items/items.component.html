@@ -1,32 +1,129 @@
 
-<div class="col-md-6 col-12">
-  <table id="tblItems" class="table table-bordered table-hover">
-    <thead>
-    <tr>
-      <th>Code</th>
-      <th>discription</th>
-      <th>Unic Price</th>
-      <th>QtyOnHand</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+<!--<div class="col-md-6 col-12">-->
+  <!--<table id="tblItems" class="table table-bordered table-hover">-->
+    <!--<thead>-->
+    <!--<tr>-->
+      <!--<th>Code</th>-->
+      <!--<th>discription</th>-->
+      <!--<th>Unic Price</th>-->
+      <!--<th>QtyOnHand</th>-->
+      <!--<th></th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr>-->
+      <!--<td></td>-->
+      <!--<td></td>-->
+      <!--<td></td>-->
+      <!--<td></td>-->
 
-      <td>
-        <i class="fa fa-trash fa-2x"></i>
-      </td>
-    </tr>
-    </tbody>
-    <tfoot>
-    <tr>
-      <td colspan="4">
-      </td>
-    </tr>
-    </tfoot>
-  </table>
+      <!--<td>-->
+        <!--<i class="fa fa-trash fa-2x"></i>-->
+      <!--</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+    <!--<tfoot>-->
+    <!--<tr>-->
+      <!--<td colspan="4">-->
+      <!--</td>-->
+    <!--</tr>-->
+    <!--</tfoot>-->
+  <!--</table>-->
+<!--</div>-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Item</title>
+</head>
+<body>
+<a href="../../assets/blur.jpg" style="background-size: cover"></a>
+<div class="jumbotron">
+  <h1>Add New Item <i class="fa fa-user"></i></h1>
+  <h4>Start Item Session here..</h4>
+  <style>
+    div.jumbotron{
+      text-align: center;
+      background: #516990;
+      color: white;
+    }
+  </style>
 </div>
+<div class="card">
+  <div class="card-body" login-card-body>
+    <div class="row">
+      <div class="col col-12">
+        <form #frmItem="ngForm" (ngSubmit)="saveItem()" >
+          <p class="form-group">
+            <label for="txtcode">Code :-</label>
+            <span class="fa fa-code form-control-feedback"></span>
+            <input [disabled]="manuallySelected" name="text"[(ngModel)]="selectedItem.code" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Code" id="txtcode">
+          </p>
+          <p class="form-group">
+            <label for="txtdescrption">Description :-</label>
+            <span class="fa fa-newspaper-o form-control-feedback"></span>
+            <input name="text" [(ngModel)]="selectedItem.discription" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Description" id="txtdescrption">
+          </p>
+          <p class="form-group">
+            <label for="txtprice">Price :-</label>
+            <span class="fa fa-money form-control-feedback"></span>
+            <input name="text" [(ngModel)]="selectedItem.unitPrice" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Price" id="txtprice">
+          </p>
+          <p class="form-group">
+            <label for="txtqty">Qty :-</label>
+            <span class="fa fa-hand-stop-o form-control-feedback"></span>
+            <input name="text" [(ngModel)]="selectedItem.QtyOnHand" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Qty" id="txtqty">
+          </p>
+          <div class="clearfix">
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+            <p>By creating an account you agree to our <a href="#" style="color:#005cbf">Terms & Privacy</a>.</p>
+            <button routerLink="/main"  routerLinkActive="active" type="reset" class="btn btn-danger">Cancel</button>
+            <button class="btn btn-success">Add</button>
+          </div>
+        </form>
+      </div>
+
+      <style>
+        div.clearfix {
+          text-align: center;
+          background-color: #0b3251;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          opacity: 0.9;
+        }
+      </style>
+    </div>
+    <div class="modal-footer">
+      <div class="copyright">
+        &copy; Copyright <strong>ijse.lk</strong>. All Rights Reserved
+      </div>
+      <div class="social-links">
+        <a href="https://twitter.com/login" class="twitter"><i class="fa fa-twitter"></i></a>
+        <a href="https://en-gb.facebook.com/login/" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.instagram.com/accounts/login/" class="instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://plus.google.com/up/?continue=https://plus.google.com/people" class="google-plus"><i class="fa fa-google-plus"></i></a>
+        <a href="https://www.linkedin.com/uas/login" class="linkedin"><i class="fa fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <style>
+    </style>
+
+  </div>
+
+</div>
+</body>
+</html>
+
+
+
+
+
+
