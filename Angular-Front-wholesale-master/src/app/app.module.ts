@@ -13,6 +13,8 @@ import {FormsModule} from '@angular/forms';
 import {UserService} from './service/user-service';
 import {HttpClientModule} from '@angular/common/http';
 import {ItemService} from './service/item-service';
+import {PlaceOrderService} from './service/place-order-service';
+import {AuthService} from './service/auth-service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import {ItemService} from './service/item-service';
   ],
   providers: [
     UserService,
-    ItemService
+    ItemService,
+    PlaceOrderService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
