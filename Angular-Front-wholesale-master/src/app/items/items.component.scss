@@ -1,0 +1,26 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+#tblCustomers tbody{
+  background-color: white;
+}
+
+#tblItems tr{
+  cursor: pointer;
+}
+
+#tblItems tr th:first-child, #tblCustomers tr td:first-child{
+  text-align: center;
+}
+
+#tblItems tr td:last-child{
+  text-align: center;
+}
+
+#tblItems tr td:last-child:hover{
+  color: red;
+}
+
+.selected{
+  background-color: lightgray;
+}

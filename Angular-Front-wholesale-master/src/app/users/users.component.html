@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>User</title>
+</head>
+<body>
+<a href="../../assets/blur.jpg" style="background-size: cover"></a>
+<div class="jumbotron">
+  <h1>Add New User <i class="fa fa-user"></i></h1>
+  <h4>Start User Session here..</h4>
+  <style>
+    div.jumbotron{
+      text-align: center;
+      background: #516990;
+      color: white;
+    }
+  </style>
+</div>
+<div class="card">
+  <div class="card-body" login-card-body>
+    <div class="row">
+      <div class="col col-12">
+        <form #frmUser="ngForm" (ngSubmit)="saveUser()" >
+    <p class="form-group">
+      <label for="txtid">ID :-</label>
+      <span class="fa fa-navicon form-control-feedback"></span>
+      <input [disabled]="manuallySelected" name="text"[(ngModel)]="selectedUser.userId" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Name User" id="txtid">
+    </p>
+      <p class="form-group">
+        <label for="txtName">Name :-</label>
+        <span class="fa fa-mail-forward form-control-feedback"></span>
+        <input name="text" [(ngModel)]="selectedUser.userName" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="E mail user" id="txtName">
+      </p>
+      <p class="form-group">
+        <label for="txtcontact">Contact :-</label>
+        <span class="fa fa-mobile-phone form-control-feedback"></span>
+        <input name="text" [(ngModel)]="selectedUser.userContact" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Contact number" id="txtcontact">
+      </p>
+      <p class="form-group">
+        <label for="txtAddress">Address :-</label>
+        <span class="fa fa-address-card form-control-feedback"></span>
+        <input name="text" [(ngModel)]="selectedUser.userAddress" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Address user" id="txtAddress">
+      </p>
+        </form>
+  </div>
+      <div class="clearfix">
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        <p>By creating an account you agree to our <a href="#" style="color:#005cbf">Terms & Privacy</a>.</p>
+        <button routerLink="/main"  routerLinkActive="active" type="reset" class="btn btn-danger">Cancel</button>
+        <button class="btn btn-success" (ngSubmit)="saveUser()">SignUp</button>
+      </div>
+      <style>
+        div.clearfix {
+          text-align: center;
+          background-color: #0b3251;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          opacity: 0.9;
+        }
+      </style>
+</div>
+<div class="modal-footer">
+  <div class="copyright">
+    &copy; Copyright <strong>ijse.lk</strong>. All Rights Reserved
+  </div>
+  <div class="social-links">
+    <a href="https://twitter.com/login" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="https://en-gb.facebook.com/login/" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="https://www.instagram.com/accounts/login/" class="instagram"><i class="fa fa-instagram"></i></a>
+    <a href="https://plus.google.com/up/?continue=https://plus.google.com/people" class="google-plus"><i class="fa fa-google-plus"></i></a>
+    <a href="https://www.linkedin.com/uas/login" class="linkedin"><i class="fa fa-linkedin"></i></a>
+  </div>
+</div>
+
+<style>
+</style>
+
+  </div>
+
+</div>
+</body>
+</html>
+
+
