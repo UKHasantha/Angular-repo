@@ -37,44 +37,44 @@
     <div>
       <br>
     <a>
-      <div class="col-md-6 col-12">
-      <table id="tblItems" class="table table-bordered table-hover">
-      <thead>
-      <tr>
-      <th>Code</th>
-      <th>Desc</th>
-      <th>UnitPrice</th>
-      <th>Quantity</th>
-      <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let Selected of selectedItems">
-      <td>{{Selected.item.code}}</td>
-      <td>{{Selected.item.discription}}</td>
-      <td>{{Selected.item.unitPrice}}</td>
-      <td>{{Selected.item.QtyOnHand}}</td>
-      <td>
-      <i class="fa fa-trash fa-2x"></i>
-      </td>
+      <!--<div class="col-md-6 col-12">-->
+      <!--<table id="tblItems" class="table table-bordered table-hover">-->
+      <!--<thead>-->
+      <!--<tr>-->
+      <!--<th>Code</th>-->
+      <!--<th>Desc</th>-->
+      <!--<th>UnitPrice</th>-->
+      <!--<th>Quantity</th>-->
+      <!--<th></th>-->
+      <!--</tr>-->
+      <!--</thead>-->
+      <!--<tbody>-->
+      <!--<tr *ngFor="let Selected of selectedItems">-->
+      <!--<td>{{Selected.item.code}}</td>-->
+      <!--<td>{{Selected.item.discription}}</td>-->
+      <!--<td>{{Selected.item.unitPrice}}</td>-->
+      <!--<td>{{Selected.quantity}}</td>-->
+      <!--<td>-->
+      <!--<i class="fa fa-trash fa-2x"></i>-->
+      <!--</td>-->
 
-      </tr>
-      </tbody>
-      <tfoot>
-      <tr>
-      <td colspan="4">
-      </td>
-      </tr>
-      </tfoot>
-      </table>
-      </div>
+      <!--</tr>-->
+      <!--</tbody>-->
+      <!--<tfoot>-->
+      <!--<tr>-->
+      <!--<td colspan="4">-->
+      <!--</td>-->
+      <!--</tr>-->
+      <!--</tfoot>-->
+      <!--</table>-->
+      <!--</div>-->
     </a>
     </div>
   </div>
   <form #frmPlac="ngForm"  >
     <div class="col-md-5 mb-3">
       <label for="code">Item Code</label>
-      <select (change)="searchItems($event)" class="custom-select d-block w-100" id="code"  name="code" required>
+      <select (change)="searchItems" class="custom-select d-block w-100" id="code"  name="code" required>
         <option  value="">Choose...</option>
         <option *ngFor="let item of items" >{{item.code}}</option>
       </select>
@@ -100,6 +100,13 @@
     <div class="col-md-3 offset-md-3"></div>
     <div class="col-md-3 offset-md-3"></div>
     <div></div>
+    <div class="row">
+      <div class="col-md-3 offset-md-3"></div>
+      <div class="col-md-3 offset-md-3">
+        <label for="total"><h3>Total</h3></label>
+        <input type="text" class="form-control" id="total" placeholder="" name="total" value="{{maintotal}}" required>
+      </div>
+    </div>
   </form>
   <div class="col-md-4 offset-md-4">
     <label for="orderDate">Order Date</label>
@@ -114,14 +121,9 @@
   </div>
     <div class="modal-footer">
       <div class="clearfix">
-        <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="selectDetails()">Add Order</button>
+        <button type="submit" class="btn btn-primary" (click)="selectDetails()">Add Order</button>
         <br>
-        <button routerLink="/main" routerLinkActive="active" type="reset" class="btn btn-danger btn-lg btn-block">Cancel Add Order</button>
-        <br>
-        <div class="copyright">
-          &copy; Copyright <strong>ijse.lk</strong>. All Rights Reserved
-        </div>
-      </div>
+
       <style>
         div.clearfix {
           text-align: center;
@@ -138,8 +140,16 @@
   </div>
   <div>
   </div>
+    </div>
 </form>
   </div>
+  <hr class="mb-4">
+  <button class="btn btn-primary btn-lg btn-block" type="submit">Place Order</button>
 </form>
+<button routerLink="/main" routerLinkActive="active" type="reset" class="btn btn-danger btn-lg btn-block">Cancel Add Order</button>
+<br>
+<div class="copyright">
+  &copy; Copyright <strong>ijse.lk</strong>. All Rights Reserved
+</div>
 </body>
 </html>

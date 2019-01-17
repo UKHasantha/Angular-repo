@@ -16,6 +16,7 @@ import {ItemService} from './service/item-service';
 import {PlaceOrderService} from './service/place-order-service';
 import {AuthService} from './service/auth-service';
 import { ItemViewComponent } from './item-view/item-view.component';
+import { UserViewComponent } from './user-view/user-view.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ItemViewComponent } from './item-view/item-view.component';
     UsersComponent,
     LoginComponent,
     ItemViewComponent,
+    UserViewComponent,
   ],
   imports: [
     BrowserModule,
