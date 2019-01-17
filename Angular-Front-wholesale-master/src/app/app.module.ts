@@ -15,6 +15,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ItemService} from './service/item-service';
 import {PlaceOrderService} from './service/place-order-service';
 import {AuthService} from './service/auth-service';
+import { ItemViewComponent } from './item-view/item-view.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {AuthService} from './service/auth-service';
     ItemsComponent,
     UsersComponent,
     LoginComponent,
+    ItemViewComponent,
   ],
   imports: [
     BrowserModule,

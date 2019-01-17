@@ -13,8 +13,8 @@ export class ItemService {
   saveItem(item: ItemDTO): Observable<boolean> {
     return this.http.post<boolean>(MAIN_URL + URL, item);
   }
-  searchItem(id: string): Observable<ItemDTO> {
-    return this.http.get<ItemDTO>(MAIN_URL + URL + '/' + id);
+  searchItem(code: string): Observable<ItemDTO> {
+    return this.http.get<ItemDTO>(MAIN_URL + URL + '/' + code);
   }
   getAllItems(): Observable<Array<ItemDTO>> {
     return this.http.get<Array<ItemDTO>>(MAIN_URL + URL);

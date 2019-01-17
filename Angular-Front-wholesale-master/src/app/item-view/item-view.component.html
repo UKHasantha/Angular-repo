@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="jumbotron">
+  <h1>View Items...<i class="fa fa-user"></i></h1>
+  <h4>Start Item Session here..</h4>
+  <style>
+    div.jumbotron{
+      text-align: center;
+      background: #516990;
+      color: white;
+    }
+  </style>
+</div>
+<div class="col-md-6 col-12">
+  <form #frmViewItem="ngForm" (ngSubmit)="loadAllItems()">
+  <table id="tblItems" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+      <th>Code</th>
+      <th>Desc</th>
+      <th>UnitPrice</th>
+      <th>Quantity</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of items | slice: { itemsPerPage: 7, currentPage: p }" (click)="selectedsItems(item)"
+        [class.selected]="item==selectedItems">
+      <td>{{item.code}}</td>
+      <td>{{item.discription}}</td>
+      <td>{{item.unitPrice}}</td>
+      <td>{{item.QtyOnHand}}</td>
+
+      <td>
+        <i (click)="deleteItems()" class="fa fa-trash fa-2x"></i>
+      </td>
+
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="4">
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+  </form>
+</div>
+</body>
+</html>

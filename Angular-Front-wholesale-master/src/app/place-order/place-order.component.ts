@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {UserDTO} from '../dtos/user-dto';
 import {OrdersDetails} from '../dtos/orders-details';
 import {ItemDTO} from '../dtos/item-dto';
-import {PlaceOrderDetailsPK} from '../dtos/place-order-details-pk';
+// import {PlaceOrderDetailsPK} from '../dtos/place-order-details-pk';
 import {PlaceOrder} from '../dtos/place-order';
 import {Orders} from '../dtos/orders';
 import {NgForm} from '@angular/forms';
@@ -19,10 +19,10 @@ export class PlaceOrderComponent implements OnInit {
 
   users: Array<UserDTO> = [];
   selectedItems: Array<OrdersDetails> = [];
-  fulltotal = 0;
+  maintotal = 0;
   searchedItems: ItemDTO = new ItemDTO();
   searchedUsers: UserDTO = new UserDTO();
-  orderDetail_PKDTO: PlaceOrderDetailsPK ;
+  // orderDetail_PKDTO: PlaceOrderDetailsPK ;
   orderDetail: OrdersDetails;
   items: any = [];
   placeOrder: PlaceOrder;
@@ -36,6 +36,8 @@ export class PlaceOrderComponent implements OnInit {
               private element: ElementRef) { }
 
   ngOnInit() {
+    this.getUserId();
+    this.getItemCode();
   }
   addOrder(): void {
     this.placeOrder = new PlaceOrder();
@@ -50,8 +52,22 @@ export class PlaceOrderComponent implements OnInit {
         } else {
           alert('order not saved..');
         }
+      });
+  }
+  getItemCode() {
+    this.itemService.getAllItems().subscribe(
+      (result) => {
+        this.items = result;
       }
-      );
+    );
+  }
+  getUserId(): void {
+    this.userService.getAllUsers().subscribe(
+      (result) => {
+        this.users = result;
+        console.log(this.users);
+      }
+    );
   }
   selectDetails(): void {
     const ordersDate = this.element.nativeElement.querySelector('#orderDate').value;
@@ -59,19 +75,19 @@ export class PlaceOrderComponent implements OnInit {
     const orderId = this.element.nativeElement.querySelector('#orderId').value;
 
     this.total = qty * this.searchedItems.unitPrice;
-    this.fulltotal = this.fulltotal + this.total;
-    const price = this.fulltotal;
+    this.maintotal = this.maintotal + this.total;
+    const price = this.maintotal;
     console.log(price);
 
     this.order = new Orders(orderId, ordersDate, this.total, this.searchedUsers);
     console.log(this.order.totalPrice);
-    this.orderDetail_PKDTO = new PlaceOrderDetailsPK();
+    // this.orderDetail_PKDTO = new PlaceOrderDetailsPK();
     this.orderDetail = new OrdersDetails();
     this.orderDetail.quantity = qty;
     this.orderDetail.unitprice = this.searchedItems.unitPrice;
     this.orderDetail.item = this.searchedItems;
     this.orderDetail.order = this.order;
-    this.orderDetail.orderdetailspk = this.orderDetail_PKDTO;
+    // this.orderDetail.orderdetailspk = this.orderDetail_PKDTO;
 
     this.selectedItems.push(this.orderDetail);
 

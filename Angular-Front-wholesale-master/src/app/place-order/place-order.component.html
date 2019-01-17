@@ -26,10 +26,10 @@
       <span class="fa fa-code form-control-feedback"></span>
       <input name="text" class="form-control" placeholder="Code" id="txtcode">
     </p>
-
+<form #frmPlace="ngForm" (ngSubmit)="addOrder()" class="is-valid" novalidate>
 <div class="row">
   <div class="col-md-4">
-    <label for="countrys">User Name</label>
+    <label for="countrys">User ID</label>
     <select  (change)="searchUser($event)" class="custom-select d-block w-100" id="countrys" required>
       <option  value="">Choose...</option>
       <option  *ngFor="let user of users" >{{user.userId}}</option>
@@ -51,10 +51,9 @@
       <tbody>
       <tr *ngFor="let Selected of selectedItems">
       <td>{{Selected.item.code}}</td>
-      <td>{{Selected.item.description}}</td>
+      <td>{{Selected.item.discription}}</td>
       <td>{{Selected.item.unitPrice}}</td>
       <td>{{Selected.item.QtyOnHand}}</td>
-
       <td>
       <i class="fa fa-trash fa-2x"></i>
       </td>
@@ -72,10 +71,10 @@
     </a>
     </div>
   </div>
-  <form #frmItem="ngForm"  >
+  <form #frmPlac="ngForm"  >
     <div class="col-md-5 mb-3">
       <label for="code">Item Code</label>
-      <select   (change)="searchItems($event)" class="custom-select d-block w-100" id="code"  name="code" required>
+      <select (change)="searchItems($event)" class="custom-select d-block w-100" id="code"  name="code" required>
         <option  value="">Choose...</option>
         <option *ngFor="let item of items" >{{item.code}}</option>
       </select>
@@ -83,15 +82,15 @@
     <div  class="row" >
       <div class="col-md-5 mb-3">
         <label for="description">Item Description</label>
-        <input  type="text" class="form-control" id="description" placeholder="" name="desc" [(ngModel)]="searchedItems.description" required>
+        <input  type="text" class="form-control" id="description" placeholder="" name="desc" [(ngModel)]="searchedItems.discription" required>
       </div>
       <div class="col-md-3 mb-3">
-        <label for="unitPrice">Unic Price</label>
+        <label for="unitPrice">Unit Price</label>
         <input type="text" class="form-control" id="unitPrice" placeholder="" name="Price" [(ngModel)]="searchedItems.unitPrice" required>
       </div>
       <div class="col-md-3 mb-3">
-        <label for="Qty On Hand">Qty On Hand</label>
-        <input  type="text" class="form-control" id="Qty On Hand" placeholder="" name="qtyonhand" [(ngModel)]="searchedItems.QtyOnHand" required>
+        <label for="QtyOnHand">Qty On Hand</label>
+        <input  type="text" class="form-control" id="QtyOnHand" placeholder="" name="qty" [(ngModel)]="searchedItems.QtyOnHand" required>
       </div>
       <div class="col-md-3 mb-3">
         <label for="qty">Quantity</label>
@@ -139,6 +138,7 @@
   </div>
   <div>
   </div>
+</form>
   </div>
 </form>
 </body>

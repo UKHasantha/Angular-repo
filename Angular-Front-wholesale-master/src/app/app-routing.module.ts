@@ -5,6 +5,7 @@ import {ItemsComponent} from './items/items.component';
 import {PlaceOrderComponent} from './place-order/place-order.component';
 import {UsersComponent} from './users/users.component';
 import {OrdersComponent} from './orders/orders.component';
+import {ItemViewComponent} from './item-view/item-view.component';
 
 const routes: Routes = [{
   path: 'main',
@@ -26,6 +27,10 @@ const routes: Routes = [{
       path: 'orders',
       component: OrdersComponent
     },
+  {
+    path: 'view-item',
+    component: ItemViewComponent
+  },
     {
       path: '',
       pathMatch: 'full',
