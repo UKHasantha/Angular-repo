@@ -5,5 +5,5 @@ import {OrdersDetails} from './orders-details';
 export class PlaceOrder {
   itemsDTO: ItemDTO;
   orderDTO: Orders;
-  orderDetailsDTOS: Array <OrdersDetails> [];
+  orderDetailsDTOS: Array <OrdersDetails> = [];
 }

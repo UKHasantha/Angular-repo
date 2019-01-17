@@ -9,12 +9,15 @@ import {UserService} from '../service/user-service';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
+
+  users: Array<UserDTO> = [];
   selectedUser: UserDTO = new UserDTO();
   @ViewChild('frmUser') frmUser: NgForm;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.loadAllUsers();
   }
 
   saveUser(): void {
@@ -25,6 +28,14 @@ export class UsersComponent implements OnInit {
           } else {
             alert('User not added..');
           }
+      }
+    );
+  }
+  loadAllUsers(): void {
+    this.userService.getAllUsers().subscribe(
+      (result) => {
+      this.users = result;
+      console.log(this.users);
       }
     );
   }

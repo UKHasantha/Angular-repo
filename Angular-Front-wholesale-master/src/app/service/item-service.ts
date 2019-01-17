@@ -13,4 +13,13 @@ export class ItemService {
   saveItem(item: ItemDTO): Observable<boolean> {
     return this.http.post<boolean>(MAIN_URL + URL, item);
   }
+  searchItem(id: string): Observable<ItemDTO> {
+    return this.http.get<ItemDTO>(MAIN_URL + URL + '/' + id);
+  }
+  getAllItems(): Observable<Array<ItemDTO>> {
+    return this.http.get<Array<ItemDTO>>(MAIN_URL + URL);
+  }
+  deleteItem(id: string): Observable<boolean> {
+    return this.http.delete<boolean>(MAIN_URL + URL + id);
+  }
 }

@@ -1,6 +1,6 @@
 export class ItemDTO {
   code: string;
-  discription: string;
+  description: string;
   unitPrice: number;
   QtyOnHand: number;
 }

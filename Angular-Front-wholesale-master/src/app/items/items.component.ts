@@ -9,12 +9,14 @@ import {ItemService} from '../service/item-service';
   styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit {
+  items: Array<ItemDTO> = [];
   selectedItem: ItemDTO = new ItemDTO();
-  manuallySelected: boolean = false;
+  manuallySelected = false;
   @ViewChild('frmItem') frmItem: NgForm;
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
+    this.loadAllItems();
   }
   saveItem(): void {
     this.itemService.saveItem(this.selectedItem).subscribe(
@@ -26,6 +28,28 @@ export class ItemsComponent implements OnInit {
         }
       }
     );
+  }
+  loadAllItems(): void {
+    this.itemService.getAllItems().subscribe(
+      (result) => {
+        this.items = result;
+        console.log(this.items);
+      }
+    );
+  }
+  deleteItems(itemsID: ItemDTO): void {
+    if (confirm('Are you sure you want to delete this customer?')) {
+      this.itemService.deleteItem(itemsID.code).subscribe(
+        (result) => {
+          if (result) {
+            alert('Items has been Deleted successfully');
+          } else {
+            alert('Failed to deleted Items');
+          }
+          this.loadAllItems();
+        }
+      );
+    }
   }
 
 }

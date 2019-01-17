@@ -18,16 +18,16 @@ import {ItemService} from '../service/item-service';
 export class PlaceOrderComponent implements OnInit {
 
   users: Array<UserDTO> = [];
-  selectedItems: Array<OrdersDetails> [];
-  // fulltotal: number = 0;
+  selectedItems: Array<OrdersDetails> = [];
+  fulltotal = 0;
   searchedItems: ItemDTO = new ItemDTO();
   searchedUsers: UserDTO = new UserDTO();
   orderDetail_PKDTO: PlaceOrderDetailsPK ;
   orderDetail: OrdersDetails;
-  item: any = [];
+  items: any = [];
   placeOrder: PlaceOrder;
   order: Orders;
-  // total: number = 0;
+  total = 0;
   @ViewChild('frmPlace') frmPlace: NgForm ;
 
   constructor(private placeOrderService: PlaceOrderService,
@@ -52,5 +52,47 @@ export class PlaceOrderComponent implements OnInit {
         }
       }
       );
+  }
+  selectDetails(): void {
+    const ordersDate = this.element.nativeElement.querySelector('#orderDate').value;
+    const qty = this.element.nativeElement.querySelector('#qty').value;
+    const orderId = this.element.nativeElement.querySelector('#orderId').value;
+
+    this.total = qty * this.searchedItems.unitPrice;
+    this.fulltotal = this.fulltotal + this.total;
+    const price = this.fulltotal;
+    console.log(price);
+
+    this.order = new Orders(orderId, ordersDate, this.total, this.searchedUsers);
+    console.log(this.order.totalPrice);
+    this.orderDetail_PKDTO = new PlaceOrderDetailsPK();
+    this.orderDetail = new OrdersDetails();
+    this.orderDetail.quantity = qty;
+    this.orderDetail.unitprice = this.searchedItems.unitPrice;
+    this.orderDetail.item = this.searchedItems;
+    this.orderDetail.order = this.order;
+    this.orderDetail.orderdetailspk = this.orderDetail_PKDTO;
+
+    this.selectedItems.push(this.orderDetail);
+
+    console.log(this.selectedItems);
+
+  }
+
+  searchUser(event: any): void {
+    this.userService.searchUser(event.target.value).subscribe(
+      (result) => {
+        this.searchedUsers = result;
+        console.log(this.searchedUsers);
+      }
+    );
+  }
+  searchItems(event: any): void {
+    this.itemService.searchItem(event.target.value).subscribe(
+      (result) => {
+        this.searchedItems = result;
+        console.log(this.searchedItems);
+      }
+    );
   }
 }
