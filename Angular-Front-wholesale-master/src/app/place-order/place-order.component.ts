@@ -94,7 +94,6 @@ export class PlaceOrderComponent implements OnInit {
     console.log(this.selectedItems);
 
   }
-
   searchUser(event: any): void {
     this.userService.searchUser(event.target.value).subscribe(
       (result) => {

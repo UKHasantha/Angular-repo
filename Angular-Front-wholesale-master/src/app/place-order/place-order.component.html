@@ -21,11 +21,6 @@
 </div>
 <form class="is-valid">
   <div class="card-body">
-    <p class="form-group">
-      <label for="txtcode">Code :-</label>
-      <span class="fa fa-code form-control-feedback"></span>
-      <input name="text" class="form-control" placeholder="Code" id="txtcode">
-    </p>
 <form #frmPlace="ngForm" (ngSubmit)="addOrder()" class="is-valid" novalidate>
 <div class="row">
   <div class="col-md-4">
@@ -37,37 +32,37 @@
     <div>
       <br>
     <a>
-      <!--<div class="col-md-6 col-12">-->
-      <!--<table id="tblItems" class="table table-bordered table-hover">-->
-      <!--<thead>-->
-      <!--<tr>-->
-      <!--<th>Code</th>-->
-      <!--<th>Desc</th>-->
-      <!--<th>UnitPrice</th>-->
-      <!--<th>Quantity</th>-->
-      <!--<th></th>-->
-      <!--</tr>-->
-      <!--</thead>-->
-      <!--<tbody>-->
-      <!--<tr *ngFor="let Selected of selectedItems">-->
-      <!--<td>{{Selected.item.code}}</td>-->
-      <!--<td>{{Selected.item.discription}}</td>-->
-      <!--<td>{{Selected.item.unitPrice}}</td>-->
-      <!--<td>{{Selected.quantity}}</td>-->
-      <!--<td>-->
-      <!--<i class="fa fa-trash fa-2x"></i>-->
-      <!--</td>-->
+      <div class="col-md-6 col-12">
+      <table id="tblItems" class="table table-bordered table-hover">
+      <thead>
+      <tr>
+      <th>Code</th>
+      <th>Desc</th>
+      <th>UnitPrice</th>
+      <th>Quantity</th>
+      <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let Selected of selectedItems">
+      <td>{{Selected.item.code}}</td>
+      <td>{{Selected.item.discription}}</td>
+      <td>{{Selected.item.unitPrice}}</td>
+      <td>{{Selected.quantity}}</td>
+      <td>
+      <i class="fa fa-trash fa-2x"></i>
+      </td>
 
-      <!--</tr>-->
-      <!--</tbody>-->
-      <!--<tfoot>-->
-      <!--<tr>-->
-      <!--<td colspan="4">-->
-      <!--</td>-->
-      <!--</tr>-->
-      <!--</tfoot>-->
-      <!--</table>-->
-      <!--</div>-->
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+      <td colspan="4">
+      </td>
+      </tr>
+      </tfoot>
+      </table>
+      </div>
     </a>
     </div>
   </div>
